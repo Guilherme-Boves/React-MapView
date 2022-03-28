@@ -5,8 +5,6 @@ import { Cabecalho } from '../../components/Cabecalho';
 import { Rodape } from '../../components/Rodape';
 import { ImagemPagInicial } from '../../components/ImagemPagInicial';
 import { Mapa } from '../../components/Mapa';
-import { Feather } from '@expo/vector-icons';
-import { theme } from '../../styles/theme';
 
 export function Home(){
     
@@ -22,7 +20,6 @@ export function Home(){
                     <Text style={styles.textoBotao}>Começar</Text>
                 </TouchableOpacity>
         
-                <Rodape/>      
             </View>     
         )
     }    
@@ -36,7 +33,6 @@ export function Home(){
                     <Text style={styles.textoBotao}>Voltar</Text>
                 </TouchableOpacity>
             
-                <Rodape/>      
             </View>     
         )
     }

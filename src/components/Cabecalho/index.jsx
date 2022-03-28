@@ -9,11 +9,7 @@ export function Cabecalho() {
     return(
 
         <View style={styles.container}>
-            <Feather
-                name="map-pin"
-                color={theme.colors.red}
-                size={32} />
-
+           
             <View>
                 <Text style={styles.titulo}>Fatec</Text>
                 <Text style={styles.subtitulo}>Maps</Text>

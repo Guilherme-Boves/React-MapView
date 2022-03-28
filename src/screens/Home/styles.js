@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         marginBottom: 30,
-      },
+      },     
       textoBotao: {
         color: theme.colors.beige,
         fontSize: 16,
