@@ -26,13 +26,10 @@ export function Home(){
     else {        
         return (
             <View style={styles.container}>
-                <Cabecalho/>
                 <Mapa/>
-            
                 <TouchableOpacity style={styles.botao} onPress={() => setIniciar(false)}>
                     <Text style={styles.textoBotao}>Voltar</Text>
                 </TouchableOpacity>
-            
             </View>     
         )
     }

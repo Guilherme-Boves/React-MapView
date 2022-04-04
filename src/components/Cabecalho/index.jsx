@@ -12,9 +12,9 @@ export function Cabecalho() {
            
             <View>
                 <Text style={styles.titulo}>Fatec</Text>
-                <Text style={styles.subtitulo}>Maps</Text>
+                <Text style={styles.subtitulo}>Maps</Text>                
             </View>
-
+            
         </View>
     )
 }

@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: 16,
+        marginBottom: 10,
+        paddingTop: 25,
         padding: 15,
     },
     titulo:{
