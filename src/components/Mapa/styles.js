@@ -12,6 +12,6 @@ export const styles = StyleSheet.create({
   },
   pesquisa: {
     height: '40%',
-    backgroundColor: 'gray'
+    backgroundColor: 'gray'    
   }
 });

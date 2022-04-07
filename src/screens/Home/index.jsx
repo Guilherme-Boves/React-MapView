@@ -5,6 +5,7 @@ import { Cabecalho } from '../../components/Cabecalho';
 import { Rodape } from '../../components/Rodape';
 import { ImagemPagInicial } from '../../components/ImagemPagInicial';
 import { Mapa } from '../../components/Mapa';
+import { Feather } from '@expo/vector-icons';
 
 export function Home(){
     
@@ -25,10 +26,13 @@ export function Home(){
     }    
     else {        
         return (
-            <View style={styles.container}>
+            <View style={styles.containerVoltar}>
                 <Mapa/>
-                <TouchableOpacity style={styles.botao} onPress={() => setIniciar(false)}>
-                    <Text style={styles.textoBotao}>Voltar</Text>
+                <TouchableOpacity onPress={() => setIniciar(false)}>
+                <Feather
+                    name="arrow-left"
+                    color='#fff'
+                    size={32} />
                 </TouchableOpacity>
             </View>     
         )

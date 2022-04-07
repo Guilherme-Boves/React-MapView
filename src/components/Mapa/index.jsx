@@ -1,17 +1,16 @@
 import {View, Text, SafeAreaView} from 'react-native';
 import {styles} from './styles'
-import MapView from 'react-native-maps';
-import * as Location from 'expo-location';
-import * as Permissions from 'expo-permissions';
 import React, {useState, useEffect, useRef} from 'react';
-
-
+import config from '../../../config'
+import MapView, {Marker} from "react-native-maps"
+import * as Location from 'expo-location'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import MapViewDirections from 'react-native-maps-directions';
 
 export function Mapa() {
 
+    const mapEl=useRef(null)
     const [temPermissao, setTemPermissao] = useState(null)
-    //const [localizacao, setLocalizacao] = useState(null)
-    const [mensagemErro, setMensagemErro] = useState(null)
     const [origem, setOrigem]=useState(null)
     const [destino, setDestino]=useState(null)
 
@@ -21,7 +20,12 @@ export function Mapa() {
                             requestForegroundPermissionsAsync()
           setTemPermissao(status === 'granted')     
           let localizacao = await Location.getCurrentPositionAsync()    
-          console.log(localizacao)         
+          setOrigem({
+            latitude: localizacao.coords.latitude,
+            longitude: localizacao.coords.longitude, 
+            latitudeDelta: 0.00922,
+            longitudeDelta: 0.00421,
+          })
         })();
     },[])
 
@@ -36,22 +40,57 @@ export function Mapa() {
 
     return (
        
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <MapView style={styles.mapa}            
-                initialRegion={{
-                latitude: -23.290255027795762,
-                longitude: -47.29613863072915, 
-                latitudeDelta: 0.00922,
-                longitudeDelta: 0.00421,
-                    }}
-                    
+                initialRegion={origem}
+                    showsUserLocation={true}
+                    loadingEnabled={true}
+                    ref={mapEl}                    
                 >
+                    {destino && 
+                        <MapViewDirections
+                            origin={origem}
+                            destination={destino}
+                            apikey={config.googleApi}
+                            strokeWidth={3}
+                            onReady={result=>{
+                                    mapEl.current.fitToCoordinates(
+                                        result.coordinates,{
+                                            edgePadding:{
+                                                top:50,
+                                                bottom:50,
+                                                left:50,
+                                                right:50
+                                            }
+                                        }
+                                    )
+                                }
+                            }
+                        />
+                    }
             </MapView>
 
             <View style={styles.pesquisa}>
-                    
+                <GooglePlacesAutocomplete
+                    placeholder='Para onde Vamos?'
+                    onPress={(data, details = null) => {
+                        setDestino({
+                            latitude: details.geometry.location.lat,
+                            longitude: details.geometry.location.lng, 
+                            latitudeDelta: 0.00922,
+                            longitudeDelta: 0.00421
+                        });                        
+                    }}
+                    query={{
+                        key: config.googleApi, //Chave da API
+                        language: 'pt-br',
+                    }}
+                    fetchDetails={true}
+                    styles={{listView:{height:100}}}
+                />   
             </View>
-        </SafeAreaView>    
+        </View>    
        
     )
 }
+

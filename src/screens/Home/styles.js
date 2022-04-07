@@ -6,6 +6,10 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: theme.colors.beige
     },
+    containerVoltar: {
+      flex: 1,
+      backgroundColor: 'gray'
+    },
     botao: {
         backgroundColor: theme.colors.red,
         height: 50,
@@ -17,7 +21,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         marginBottom: 30,
-      },     
+      }, 
       textoBotao: {
         color: theme.colors.beige,
         fontSize: 16,
