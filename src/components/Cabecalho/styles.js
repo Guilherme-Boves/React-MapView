@@ -13,13 +13,13 @@ export const styles = StyleSheet.create({
     },
     titulo:{
         fontFamily: theme.fonts.primary700,
-        color: theme.colors.grey,
+        color: '#3B5573',
         fontSize: 30,
         padding: 2
     },
     subtitulo: {
         fontFamily: theme.fonts.primary500,
-        color: theme.colors.red,
+        color: '#5F87B9',
         fontSize:22,
         alignSelf: 'flex-end',
         marginRight: 14

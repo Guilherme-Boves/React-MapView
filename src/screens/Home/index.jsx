@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
 import { Cabecalho } from '../../components/Cabecalho';
-import { Rodape } from '../../components/Rodape';
 import { ImagemPagInicial } from '../../components/ImagemPagInicial';
 import { Mapa } from '../../components/Mapa';
 import { Feather } from '@expo/vector-icons';
@@ -16,11 +15,9 @@ export function Home(){
             <View style={styles.container}>
                 <Cabecalho/>
                 <ImagemPagInicial/>
-            
                 <TouchableOpacity style={styles.botao} onPress={() => setIniciar(true)} >
                     <Text style={styles.textoBotao}>Começar</Text>
                 </TouchableOpacity>
-        
             </View>     
         )
     }    
@@ -28,11 +25,11 @@ export function Home(){
         return (
             <View style={styles.containerVoltar}>
                 <Mapa/>
-                <TouchableOpacity onPress={() => setIniciar(false)}>
-                <Feather
+                <TouchableOpacity style={styles.botaoVoltar} onPress={() => setIniciar(false)}>
+                <Feather 
                     name="arrow-left"
                     color='#fff'
-                    size={32} />
+                    size={25} />
                 </TouchableOpacity>
             </View>     
         )

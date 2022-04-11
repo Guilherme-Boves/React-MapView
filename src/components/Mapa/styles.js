@@ -2,16 +2,15 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',    
+    flex: 1,    
     justifyContent: 'center',
   },
   mapa: {
-    height: '60%',
-    backgroundColor: 'black'
+    height: '130%',
+  
   },
   pesquisa: {
-    height: '40%',
-    backgroundColor: 'gray'    
+     height: '50%',
+     elevation: 3
   }
 });

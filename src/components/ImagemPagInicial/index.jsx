@@ -17,7 +17,7 @@ export function ImagemPagInicial() {
                 }}
 
                 animate={{
-                opacity: 1,
+                opacity: 1, 
                 translateX: 4
                 }}
                 
